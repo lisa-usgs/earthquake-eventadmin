@@ -108,7 +108,8 @@ var getSortedMostPreferredFirst = function (list) {
  */
 var productHasOriginProperties = function (product) {
   var props = product.properties;
-  if (props.hasOwnProperty('eventsource') &&
+  if (props &&
+      props.hasOwnProperty('eventsource') &&
       props.hasOwnProperty('eventsourcecode') &&
       props.hasOwnProperty('latitude') &&
       props.hasOwnProperty('longitude') &&
@@ -165,7 +166,8 @@ var getProductWithEventIdProperties = function (list) {
   list = getSortedMostPreferredFirst(list);
   for (i = 0; i < list.length; i++) {
     props = list[i].properties;
-    if (props.hasOwnProperty('eventsource') &&
+    if (props &&
+        props.hasOwnProperty('eventsource') &&
         props.hasOwnProperty('eventsourcecode')) {
       return list[i];
     }
